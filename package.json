@@ -5,14 +5,17 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
     "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec arch -x86_64 pod install"
   },
   "dependencies": {
+    "i18next": "^23.7.8",
     "react": "^18.2.0",
-    "react-native": "^0.73.0"
+    "react-i18next": "^13.5.0",
+    "react-native": "^0.73.0",
+    "react-native-localize": "^3.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
