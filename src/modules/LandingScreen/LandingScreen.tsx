@@ -1,12 +1,13 @@
 import { memo } from 'react';
-import { Text, useColorScheme, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { Text, View } from 'react-native';
 
 export const LandingScreen = memo(() => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const { t } = useTranslation('landing');
 
   return (
     <View>
-      <Text>My Landing page</Text>
+      <Text>{t('test')}</Text>
     </View>
   );
 });

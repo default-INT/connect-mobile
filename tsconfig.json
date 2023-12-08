@@ -35,8 +35,8 @@
       "@components/*": ["src/components/*"],
       "@components": ["src/components"],
 
-      "@config/*": ["src/config/*"],
-      "@config": ["src/config"],
+      "@constants/*": ["src/constants/*"],
+      "@constants": ["src/constants"],
 
       "@navigation/*": ["src/navigation/*"],
       "@navigation": ["src/navigation"],
@@ -44,6 +44,7 @@
       "@modules/*": ["src/modules/*"],
       "@modules": ["src/modules"],
 
+      "@types/*": ["src/types/*"],
       "@types": ["src/types"],
 
       "@store/*": ["src/store/*"],
