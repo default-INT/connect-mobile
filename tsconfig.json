@@ -50,6 +50,9 @@
       "@store/*": ["src/store/*"],
       "@store": ["src/store"],
 
+      "@styles/*": ["src/styles/*"],
+      "@styles": ["src/styles"],
+
       "@utils/*": ["src/utils/*"],
       "@utils": ["src/utils"]
     }
@@ -58,6 +61,7 @@
     "node_modules",
     "babel.config.js",
     "metro.config.js",
-    "jest.config.js"
+    "jest.config.js",
+    "bin"
   ]
 }

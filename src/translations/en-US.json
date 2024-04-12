@@ -1,5 +1,34 @@
 {
-  "landing": {
-    "test": "My Landing"
+  "auth": {
+    "landing": {
+      "title": "Any Title or Description",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt\nut labore et dolore magna aliqua",
+      "buttons": {
+        "log_in": "Log in",
+        "sing_up": "Sing up"
+      }
+    },
+    "login": {
+      "inputs": {
+        "username": {
+          "placeholder": "Username"
+        },
+        "password": {
+          "placeholder": "Password"
+        }
+      },
+      "buttons": {
+        "continue": "Continue",
+        "login_apple": "Continue with Apple",
+        "login_google": "Continue with Google",
+        "sign_up": "Sign up"
+      },
+      "sing_up_text": "You don’t have account?",
+      "sing_up_link": "Sing Up",
+      "or_stroke": "or"
+    }
+  },
+  "common": {
+    "app_name": "Connect"
   }
 }

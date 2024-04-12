@@ -1,11 +1,11 @@
 import { memo } from 'react';
-import { SafeAreaView } from 'react-native';
-import { LandingScreen } from '@modules/LandingScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthNavigator } from '@root/navigators/AuthNavigator';
 
 const App = memo(() => (
-  <SafeAreaView>
-    <LandingScreen />
-  </SafeAreaView>
+  <NavigationContainer>
+    <AuthNavigator />
+  </NavigationContainer>
 ));
 
 export default App;
