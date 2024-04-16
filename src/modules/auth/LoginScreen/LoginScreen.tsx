@@ -1,6 +1,7 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SafeAreaView, View } from 'react-native';
+import { Alert, SafeAreaView, View } from 'react-native';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { AppInput } from '@components/AppInput';
 import { AppButton, buttonModifiers } from '@components/AppButton';
 import { AppText } from '@components/AppText';
@@ -11,6 +12,18 @@ import { styles } from './styles';
 
 export const LoginScreen = memo(() => {
   const { t } = useTranslation('auth');
+
+  const handleGoogleSignIn = useCallback(async () => {
+    try {
+      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+      const userInfo = await GoogleSignin.signIn();
+      Alert.alert(`Welcome ${userInfo.user.email}`);
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+      Alert.alert(`Something went wrong: ${e}`);
+    }
+  }, []);
 
   return (
     <SafeAreaView>
@@ -44,6 +57,7 @@ export const LoginScreen = memo(() => {
             title={t('login.buttons.login_google')}
             style={buttonModifiers.whiteButton}
             textStyle={buttonModifiers.whiteButtonText}
+            onPress={handleGoogleSignIn}
           />
         </View>
       </View>

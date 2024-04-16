@@ -1,6 +1,9 @@
-package com.connect;
+package com.intsoft.connect;
 
 import android.app.Application;
+
+import com.intsoft.connect.BuildConfig;
+import com.intsoft.connect.ReactNativeFlipper;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
