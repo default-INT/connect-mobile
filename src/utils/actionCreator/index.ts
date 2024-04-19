@@ -1,0 +1,1 @@
+export { actionCreator } from './actionCreator';

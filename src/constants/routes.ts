@@ -5,6 +5,13 @@ const mainRoutesConfig = {
     landing: {},
     login: {},
   },
+  app: {
+    chats: {},
+    eventList: {},
+    eventMap: {},
+    friends: {},
+    profile: {},
+  },
 };
 
 export const r = proxyPath<typeof mainRoutesConfig>(mainRoutesConfig);

@@ -1,7 +1,9 @@
 import { memo, useLayoutEffect } from 'react';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
-import { AuthNavigator } from '@root/navigators/AuthNavigator';
+import { RootNavigator } from '@root/navigators/RootNavigator';
 import { setupGoogleSignIn } from '@utils/auth/setupGoogleSignIn';
+import { store } from '@root/store';
 
 const App = memo(() => {
   useLayoutEffect(() => {
@@ -9,9 +11,11 @@ const App = memo(() => {
   }, []);
 
   return (
-    <NavigationContainer>
-      <AuthNavigator />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </Provider>
   );
 });
 

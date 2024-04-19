@@ -1,0 +1,1 @@
+export { getUserInfoWorker } from './getUserInfoWorker';
