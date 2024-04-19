@@ -38,20 +38,11 @@
       "@constants/*": ["src/constants/*"],
       "@constants": ["src/constants"],
 
-      "@navigation/*": ["src/navigation/*"],
-      "@navigation": ["src/navigation"],
-
       "@modules/*": ["src/modules/*"],
       "@modules": ["src/modules"],
 
-      "@types/*": ["src/types/*"],
-      "@types": ["src/types"],
-
       "@store/*": ["src/store/*"],
       "@store": ["src/store"],
-
-      "@styles/*": ["src/styles/*"],
-      "@styles": ["src/styles"],
 
       "@utils/*": ["src/utils/*"],
       "@utils": ["src/utils"]

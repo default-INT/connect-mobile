@@ -1,0 +1,1 @@
+export { loginByGoogle } from './loginByGoogle';
