@@ -1,5 +1,1 @@
-export const ACCESS_TOKEN = 'ACCESS_TOKEN';
-export const REFRESH_TOKEN = 'REFRESH_TOKEN';
-export const ACCESS_EXPIRED_AT = 'ACCESS_EXPIRED_AT';
-export const REFRESH_EXPIRED_AT = 'REFRESH_EXPIRED_AT';
-export const USER_MOCK = 'USER_MOCK';
+export const USER_TOKENS = 'USER_TOKENS';

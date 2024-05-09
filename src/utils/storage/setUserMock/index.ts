@@ -1,1 +1,0 @@
-export { setUserMock } from './setUserMock';

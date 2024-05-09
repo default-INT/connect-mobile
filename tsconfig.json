@@ -29,6 +29,7 @@
     "forceConsistentCasingInFileNames": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "baseUrl": "./",
     "paths": {
       "@root/*": ["./src/*"],
 

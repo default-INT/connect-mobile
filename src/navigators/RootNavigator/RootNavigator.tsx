@@ -4,8 +4,9 @@ import { AuthNavigator } from '@root/navigators/AuthNavigator';
 import { getUser } from '@root/selectors/getUser';
 import { Preloader } from '@components/Preloader';
 import { storage } from '@utils/storage';
-import { getUserInfo } from '@root/action/user';
+import { getUserInfo, signOut } from '@root/action/user';
 import { AppNavigator } from '@root/navigators/AppNavigator';
+import { authController } from '@utils/auth/authController';
 
 export const RootNavigator = memo(() => {
   const [isTokenLoading, setIsTokenLoading] = useState(false);
@@ -17,7 +18,7 @@ export const RootNavigator = memo(() => {
     (async () => {
       const tokens = await storage.getTokens();
       if (!isLoading && !isAuthorized && tokens) {
-        dispatch(getUserInfo() as any);
+        dispatch(getUserInfo());
       }
       setIsTokenLoading(true);
     })();
@@ -27,6 +28,16 @@ export const RootNavigator = memo(() => {
     // we will caught tokens change in effect and load user/logout by theirs events
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => authController.subscribe(tokens => {
+    if (!isLoading && !isAuthorized && tokens) {
+      return dispatch(getUserInfo());
+    }
+
+    if (!tokens && isAuthorized) {
+      return dispatch(signOut());
+    }
+  }), [dispatch, isAuthorized, isLoading]);
 
   if (isAppLoading) return <Preloader />;
   if (isAuthorized) return <AppNavigator />;
