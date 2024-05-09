@@ -17,7 +17,6 @@ export interface IBaseUserInfo {
   lastName: string | null;
   friendlyName: string | null;
   avatar: string | null;
-  roles: [];
 }
 
 export interface IUserState extends IBaseUserInfo {

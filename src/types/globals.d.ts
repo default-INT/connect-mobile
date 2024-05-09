@@ -10,6 +10,7 @@ declare module 'react-native-config' {
   export interface INativeConfig {
     WEB_CLIENT_ID: string;
     IOS_CLIENT_ID: string;
+    API_URL: string;
   }
 
   export const Config: INativeConfig;

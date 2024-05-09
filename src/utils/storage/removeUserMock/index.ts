@@ -1,1 +1,0 @@
-export { removeUserMock } from './removeUserMock';

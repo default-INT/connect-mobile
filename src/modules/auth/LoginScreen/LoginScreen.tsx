@@ -1,13 +1,11 @@
 import { memo, useCallback, useState } from 'react';
 import { Alert, SafeAreaView, View } from 'react-native';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { AppInput } from '@components/AppInput';
 import { AppButton, buttonModifiers } from '@components/AppButton';
 import { AppText } from '@components/AppText';
 import { AppleIcon, GoogleIcon } from '@root/assets/icons';
-import { LinkButton } from '@components/LinkButton/LinkButton';
-import { setUserInfo } from '@root/action/user';
+import { LinkButton } from '@components/LinkButton';
 import { loginByGoogle } from './utils/loginByGoogle';
 
 import { styles } from './styles';
@@ -15,20 +13,18 @@ import { styles } from './styles';
 export const LoginScreen = memo(() => {
   const { t } = useTranslation('auth');
   const [isLoading, setIsLoading] = useState(false);
-  const dispatch = useDispatch();
 
   const handleGoogleSignIn = useCallback(async () => {
     try {
       setIsLoading(true);
-      const user = await loginByGoogle();
-      dispatch(setUserInfo(user));
+      await loginByGoogle();
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
       Alert.alert(`Something went wrong: ${e}`);
     }
     setIsLoading(false);
-  }, [dispatch]);
+  }, []);
 
   return (
     <SafeAreaView>

@@ -1,26 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {
-  ACCESS_EXPIRED_AT,
-  ACCESS_TOKEN,
-  REFRESH_EXPIRED_AT,
-  REFRESH_TOKEN,
-} from '@utils/storage/constants';
+import { USER_TOKENS } from '@utils/storage/constants';
 import { IUserTokens } from '@root/types/user';
 
-export const getTokens = async () : Promise<IUserTokens> => {
-  const tokenInfo = await Promise.all([
-    AsyncStorage.getItem(ACCESS_TOKEN),
-    AsyncStorage.getItem(REFRESH_TOKEN),
-    AsyncStorage.getItem(ACCESS_EXPIRED_AT),
-    AsyncStorage.getItem(REFRESH_EXPIRED_AT),
-  ]);
+export const getTokens = async () : Promise<IUserTokens | null> => {
+  const tokenInfo = await AsyncStorage.getItem(USER_TOKENS);
 
-  const [
+  if (!tokenInfo) return null;
+
+  const {
     accessToken,
     refreshToken,
     accessExpiredAt,
     refreshExpiredAt,
-  ] = tokenInfo;
+  } = JSON.parse(tokenInfo) as IUserTokens;
 
   return { accessToken, refreshToken, accessExpiredAt, refreshExpiredAt };
 };

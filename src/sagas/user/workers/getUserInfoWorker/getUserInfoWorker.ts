@@ -1,16 +1,16 @@
 import { put, call } from 'redux-saga/effects';
-import { getInfoFailed, setUserInfo } from '@root/action/user';
-import { storage } from '@utils/storage';
+import { getInfoFailed, setUserInfo, signOut } from '@root/action/user';
+import { api } from '@root/api';
+import { IUserDto } from '@root/api/auth/accounts/dto';
 
 export function* getUserInfoWorker () {
   try {
-    // TODO: Implement backend
-    // @ts-ignore
-    const userState = yield call(storage.getUserMock);
+    const userState: IUserDto = yield call(api.auth.accounts.getCurrentUser);
     yield put(setUserInfo(userState));
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
     yield put(getInfoFailed());
+    yield put(signOut());
   }
 }

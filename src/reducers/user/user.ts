@@ -1,6 +1,5 @@
 import { IUserState } from '@root/types/user';
-import { SET_USER_INFO, SIGN_OUT } from '@root/action/user';
-import { storage } from '@utils/storage';
+import { GET_USER_INFO, SET_USER_INFO, SIGN_OUT } from '@root/action/user';
 
 const initialState: IUserState = {
   isLoading: false,
@@ -10,29 +9,26 @@ const initialState: IUserState = {
   lastName: null,
   friendlyName: null,
   avatar: null,
-  roles: [],
 };
 
 /* eslint-disable-next-line @typescript-eslint/default-param-last */
 export const user = (state = initialState, action: any): IUserState => {
   const { payload, type } = action || {};
   switch (type) {
-    case SET_USER_INFO: {
-      // TODO: it`s temporary solution, in future will be removed
-      storage.setUserMock({
-        isAuthorized: true,
+    case GET_USER_INFO: {
+      return {
+        isLoading: true,
         ...payload,
-      });
-
+      };
+    }
+    case SET_USER_INFO: {
       return {
         isAuthorized: true,
+        isLoading: false,
         ...payload,
       };
     }
     case SIGN_OUT: {
-      // TODO: it`s temporary solution, in future will be removed
-      storage.removeUserMock();
-
       return initialState;
     }
     default:
