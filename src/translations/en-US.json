@@ -28,6 +28,14 @@
       "or_stroke": "or"
     }
   },
+  "app": {
+    "tabs": {
+      "chats": "Chats",
+      "eventsList": "Events",
+      "feed": "Feed",
+      "profile": "Profile"
+    }
+  },
   "common": {
     "app_name": "Connect"
   }
