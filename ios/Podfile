@@ -18,7 +18,8 @@ prepare_react_native_project!
 #     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
 # ```
 # TODO: issue - https://github.com/facebook/react-native/issues/43693
-flipper_config = FlipperConfiguration.disabled
+# NOTE: If ios build is fail, you need to do this: https://github.com/facebook/react-native/issues/43335#issuecomment-1980285308
+flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
 
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
