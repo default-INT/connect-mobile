@@ -32,6 +32,17 @@ To lint the project using ESLint, use the following command: `npm run lint`
 ### Testing
 To run tests using Jest, use the following command: `npm run test`
 
+### Flipper
+For start you a need to configure up your env. You need to install:
+1. `homebrew`
+2. `watchman`
+3. `python` and `pip`
+4. `idb` (docs: https://fbidb.io/docs/installation)
+5. And finally `flipper` desktop and server
+6. Good luck!
+
+Also for debugging you could use a experimental devTools: `npx react-native start --experimental-debugger` 
+
 ## Contributing
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
