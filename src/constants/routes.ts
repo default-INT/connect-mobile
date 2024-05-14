@@ -6,11 +6,21 @@ const mainRoutesConfig = {
     login: {},
   },
   app: {
-    chats: {},
-    eventList: {},
-    eventMap: {},
-    friends: {},
-    profile: {},
+    chats: {
+      root: {},
+    },
+    eventsList: {
+      root: {},
+    },
+    eventsMap: {
+      root: {},
+    },
+    feed: {
+      root: {},
+    },
+    profile: {
+      root: {},
+    },
   },
 };
 

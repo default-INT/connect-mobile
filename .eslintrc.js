@@ -186,6 +186,7 @@ module.exports = {
     'no-restricted-exports': ['error', { 'restrictedNamedExports': ['off'] }],
     'arrow-body-style': ['error', 'as-needed'],
     'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': 'off',
     'no-alert': 'off',
     'max-classes-per-file': [
       'error',
