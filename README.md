@@ -1,8 +1,9 @@
 # Connect
 
 [![Node.js Version](https://img.shields.io/badge/Node.js-v20.10.0-green.svg)](https://nodejs.org/)
-[![npm Version](https://img.shields.io/badge/npm-v10.2.3-blue.svg)](https://www.npmjs.com/)
-[![React Native Version](https://img.shields.io/badge/react--native-v0.73.0-blueviolet.svg)](https://reactnative.dev/)
+[![npm Version](https://img.shields.io/badge/yarn-v3.6.4-blueviolet.svg)](https://v3.yarnpkg.com/getting-started/install)
+[![React Native Version](https://img.shields.io/badge/react--native-v0.73.0-darkblue.svg)](https://reactnative.dev/)
+[![React Native Version](https://img.shields.io/badge/react-v18.2.0-blue.svg)](https://react.dev/)
 
 ## Introduction
 Welcome to Connect! This is a React Native project designed to [briefly describe what your project does or its purpose].
@@ -12,25 +13,22 @@ Before you get started, make sure you have Node.js installed on your machine. Th
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
-3. Run the following command to install dependencies: `npm install`
-4. For iOS, navigate to the iOS directory and run `npm run pod-install`
+3. Run the following command to install dependencies: `yarn install`
+4. For iOS, navigate to the iOS directory and run `yarn run pod-install`
 
 ## Usage
 
 ### Running on Android
-To run the project on an Android device or emulator, use the following command: `npm run android`
+To run the project on an Android device or emulator, use the following command: `yarn run android`
 
 ### Running on iOS
-To run the project on an iOS device or simulator, use the following command: `npm run ios`
+To run the project on an iOS device or simulator, use the following command: `yarn run ios`
 
 ### Starting the Metro Bundler
-To start the Metro Bundler, which is required for running the app, use the following command: `npm start`
+To start the Metro Bundler, which is required for running the app, use the following command: `yarn start`
 
 ### Linting
-To lint the project using ESLint, use the following command: `npm run lint`
-
-### Testing
-To run tests using Jest, use the following command: `npm run test`
+To lint the project using ESLint, use the following command: `yarn run lint`
 
 ### Flipper
 For start you a need to configure up your env. You need to install:

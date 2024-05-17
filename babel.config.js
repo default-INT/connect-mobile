@@ -1,7 +1,9 @@
+const path = require("node:path");
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
+    ["@babel/plugin-transform-private-methods", { "loose": true }],
     [
       'module-resolver',
       {
@@ -18,12 +20,12 @@ module.exports = {
           '.json',
         ],
         alias: {
-          '@assets': './src/assets',
-          '@components': './src/components',
-          '@constants': './src/constants',
-          '@modules': './src/modules',
-          '@utils': './src/utils',
-          '@root': './src',
+          '@assets': path.resolve(__dirname, './src/assets'),
+          '@components': path.resolve(__dirname, './src/components'),
+          '@constants': path.resolve(__dirname, './src/constants'),
+          '@modules': path.resolve(__dirname, './src/modules'),
+          '@utils': path.resolve(__dirname, './src/utils'),
+          '@root': path.resolve(__dirname, './src'),
         },
       },
     ],
