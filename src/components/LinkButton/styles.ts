@@ -5,7 +5,7 @@ import { Fonts } from '@root/assets/fonts';
 export const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
-    color: theme.primary,
+    color: theme.primaryRegular,
     fontFamily: Fonts.RobotoBold,
   },
 });

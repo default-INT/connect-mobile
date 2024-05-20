@@ -9,6 +9,6 @@ export const appOptions: BottomTabNavigationOptions = {
     width: s.width(24),
     height: s.height(24),
   }),
-  tabBarActiveTintColor: theme.primary,
-  tabBarInactiveTintColor: theme.black,
+  tabBarActiveTintColor: theme.primaryRegular,
+  tabBarInactiveTintColor: theme.mainExtra,
 };

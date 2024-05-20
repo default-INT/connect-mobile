@@ -2,6 +2,7 @@ import { ComponentProps, memo } from 'react';
 import { TextInput } from 'react-native';
 import { theme } from '@root/styles/theme';
 import { cn } from '@utils/styleUtils/concat';
+
 import { styles } from './styles';
 
 interface IProps extends ComponentProps<typeof TextInput> {
@@ -14,7 +15,7 @@ export const AppInput = memo((props: IProps) => {
   return (
     <TextInput
       style={cn(styles.input, style)}
-      placeholderTextColor={theme.secondary}
+      placeholderTextColor={theme.neutralSecondary}
       {...inputProps}
     />
   );

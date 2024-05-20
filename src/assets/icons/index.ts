@@ -1,17 +1,17 @@
-import AppleIcon from './apple-icon.svg';
-import ChatsIcon from './chats-icon.svg';
-import EventsIcon from './events-icon.svg';
-import FeedIcon from './feed-icon.svg';
-import GoogleIcon from './google-icon.svg';
-import MapIcon from './map-icon.svg';
-import ProfileIcon from './profile-icon.svg';
+import AppleIcon from './apple.svg';
+import ChatsIcon from './chats.svg';
+import CalendarIcon from './calendar.svg';
+import NotepadIcon from './notepad.svg';
+import GoogleIcon from './google.svg';
+import MapIcon from './map.svg';
+import SmileIcon from './smile.svg';
 
 export {
   AppleIcon,
   ChatsIcon,
-  EventsIcon,
-  FeedIcon,
+  CalendarIcon,
+  NotepadIcon,
   GoogleIcon,
   MapIcon,
-  ProfileIcon,
+  SmileIcon,
 };
