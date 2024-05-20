@@ -1,7 +1,7 @@
 export const theme = {
-  primary: '#5072e0',
-  darkPrimary: '#3e60c1',
-  secondary: '#8d94ad',
-  black: '#000',
-  white: '#fff',
+  primaryExtra: '#3e60c1',
+  primaryRegular: '#5072e0',
+  neutralSecondary: '#8d94ad',
+  mainExtra: '#000',
+  mainBasic: '#fff',
 };

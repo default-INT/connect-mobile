@@ -1,33 +1,34 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '@root/styles/theme';
+import { s } from '@utils/scaleUtils/scale';
 
 export const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
   formContainer: {
-    gap: 16,
-    marginVertical: 32,
+    gap: s.height(16),
+    marginVertical: s.height(32),
   },
   signUpContainer: {
     flexDirection: 'row',
-    gap: 5,
+    gap: s.width(5),
   },
   strokeContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginVertical: 24,
+    marginVertical: s.height(24),
   },
   stroke: {
     flex: 1,
-    height: 1,
-    backgroundColor: theme.secondary,
+    height: s.height(1),
+    backgroundColor: theme.neutralSecondary,
   },
   strokeText: {
-    paddingHorizontal: 10,
+    paddingHorizontal: s.width(10),
   },
   autoSignInContainer: {
-    gap: 14,
+    gap: s.height(14),
   },
 });

@@ -13,12 +13,12 @@ export const styles = StyleSheet.create({
     borderRadius: s.max(60) / 2,
   },
   activeView: {
-    backgroundColor: theme.primary,
+    backgroundColor: theme.primaryRegular,
   },
   inactiveView: {
-    backgroundColor: theme.white,
+    backgroundColor: theme.mainBasic,
     borderWidth: s.min(2),
-    borderColor: theme.primary,
+    borderColor: theme.primaryRegular,
   },
   iconStyle: {
     width: s.width(42),

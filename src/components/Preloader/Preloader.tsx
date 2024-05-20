@@ -8,7 +8,7 @@ type TProps = ComponentProps<typeof ActivityIndicator>;
 
 export const Preloader = memo((props: TProps) => (
   <View style={styles.wrapper}>
-    <ActivityIndicator color={theme.primary} {...props} />
+    <ActivityIndicator color={theme.primaryRegular} {...props} />
   </View>
 ));
 

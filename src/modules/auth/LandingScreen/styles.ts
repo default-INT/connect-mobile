@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '@root/styles/theme';
 import { Fonts } from '@root/assets/fonts';
+import { s } from '@utils/scaleUtils/scale';
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,24 +11,24 @@ export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     alignItems: 'center',
-    gap: 68,
-    marginTop: 150,
+    gap: s.height(68),
+    marginTop: s.height(150),
   },
   logo: {
-    width: 180,
-    height: 180,
-    backgroundColor: theme.primary,
+    width: s.width(180),
+    height: s.height(180),
+    backgroundColor: theme.primaryRegular,
     justifyContent: 'center',
-    borderRadius: 90,
+    borderRadius: s.max(90),
   },
   logoText: {
-    color: theme.white,
+    color: theme.mainBasic,
     fontFamily: Fonts.RobotoBold,
-    paddingHorizontal: 5,
+    paddingHorizontal: s.width(5),
     fontSize: 44,
   },
   textContainer: {
-    gap: 36,
+    gap: s.height(36),
   },
   title: {
     fontSize: 20,
@@ -38,11 +39,11 @@ export const styles = StyleSheet.create({
   description: {
     textAlign: 'center',
     fontFamily: Fonts.RobotoRegular,
-    color: theme.secondary,
+    color: theme.neutralSecondary,
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 8,
+    gap: s.width(8),
   },
 });

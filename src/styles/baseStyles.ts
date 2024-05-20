@@ -4,7 +4,7 @@ import { theme } from '@root/styles/theme';
 export const baseStyles = StyleSheet.create({
   baseContainer: {
     flex: 1,
-    backgroundColor: theme.white,
+    backgroundColor: theme.mainBasic,
     paddingHorizontal: 16,
   },
 });

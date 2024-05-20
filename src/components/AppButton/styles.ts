@@ -1,31 +1,32 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '@root/styles/theme';
 import { Fonts } from '@root/assets/fonts';
+import { s } from '@utils/scaleUtils/scale';
 
 export const buttonModifiers = StyleSheet.create({
   secondaryButton: {
-    backgroundColor: theme.white,
-    borderColor: theme.primary,
-    borderWidth: 1,
+    backgroundColor: theme.mainBasic,
+    borderColor: theme.primaryRegular,
+    borderWidth: s.max(1),
   },
   primaryText: {
-    color: theme.primary,
+    color: theme.primaryRegular,
   },
   blackButton: {
-    borderWidth: 1,
-    borderColor: theme.black,
-    backgroundColor: theme.black,
+    borderWidth: s.max(1),
+    borderColor: theme.mainExtra,
+    backgroundColor: theme.mainExtra,
   },
   blackButtonText: {
-    color: theme.white,
+    color: theme.mainBasic,
   },
   whiteButton: {
-    backgroundColor: theme.white,
-    borderColor: theme.secondary,
-    borderWidth: 1,
+    backgroundColor: theme.mainBasic,
+    borderColor: theme.neutralSecondary,
+    borderWidth: s.max(1),
   },
   whiteButtonText: {
-    color: theme.secondary,
+    color: theme.neutralSecondary,
   },
   buttonFlex: {
     flex: 1,
@@ -36,9 +37,9 @@ export const styles = StyleSheet.create({
   button: {
     position: 'relative',
     elevation: 8,
-    backgroundColor: theme.primary,
-    padding: 20,
-    borderRadius: 8,
+    backgroundColor: theme.primaryRegular,
+    padding: s.max(20),
+    borderRadius: s.max(8),
   },
   innerContainer: {
     position: 'relative',
@@ -51,7 +52,7 @@ export const styles = StyleSheet.create({
     left: 0,
   },
   text: {
-    color: theme.white,
+    color: theme.mainBasic,
     fontSize: 16,
     textAlign: 'center',
     fontFamily: Fonts.RobotoBold,
