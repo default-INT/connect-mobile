@@ -41,6 +41,11 @@ For start you a need to configure up your env. You need to install:
 
 Also for debugging you could use a experimental devTools: `npx react-native start --experimental-debugger` 
 
+## Trouble shooting
+
+1. In Android HTTP requests not sending to `localhost:{port}`: 
+   - For fix this issue you need run this command in your terminal: `adb reverse tcp:{port} tcp:{port}` 
+
 ## Contributing
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 

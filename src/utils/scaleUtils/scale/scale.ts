@@ -1,4 +1,4 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { Dimensions, PixelRatio } from 'react-native';
 
 // For iPhone 6/7/8 in portrait orientation.
 const MIN_SCREEN_WIDTH = 375;
@@ -12,10 +12,8 @@ const scaleVertical = height / MAX_SCREEN_HEIGHT;
 // https://medium.com/@HelloMoto69/react-native-responsive-scaling-font-dimensions-pixels-5dcccd8f7124
 export const scale = (size: number, scaleSize: number) => {
   const newSize = size * scaleSize;
-  const roundedValue = Math.round(PixelRatio.roundToNearestPixel(newSize));
-  if (Platform.OS === 'ios') return roundedValue;
 
-  return roundedValue - 1;
+  return Math.round(PixelRatio.roundToNearestPixel(newSize));
 };
 
 const scaleWidth = (size: number) => scale(size, scaleHorizontal);

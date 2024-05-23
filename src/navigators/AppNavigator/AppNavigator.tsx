@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { gen } from '@utils/router/gen';
 import { r } from '@constants/routes';
+import { Platform } from 'react-native';
 import { FeedNavigator, feedNavigatorOptions } from './navigators/FeedNavigator';
 import { EventsListNavigator, eventsListNavigatorOptions } from './navigators/EventsListNavigator';
 import { EventsMapNavigator, eventsMapNavigatorOptions } from './navigators/EventsMapNavigator';
@@ -13,6 +14,7 @@ const BottomTabNavigator = createBottomTabNavigator();
 export const AppNavigator = () => (
   <BottomTabNavigator.Navigator
     screenOptions={appOptions}
+    detachInactiveScreens={Platform.OS === 'ios'}
     initialRouteName={gen.loc(r.app.eventsMap)}
   >
     <BottomTabNavigator.Screen
