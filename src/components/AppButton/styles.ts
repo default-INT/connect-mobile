@@ -36,7 +36,7 @@ export const buttonModifiers = StyleSheet.create({
 export const styles = StyleSheet.create({
   button: {
     position: 'relative',
-    elevation: 8,
+    elevation: 4,
     backgroundColor: theme.primaryRegular,
     padding: s.max(20),
     borderRadius: s.max(8),
