@@ -1,6 +1,6 @@
 import { InternalAxiosRequestConfig } from 'axios';
 import { storage } from '@utils/storage';
-import { store } from '@root//store';
+import { store } from '@root/store';
 import { signOut } from '@root/action/user';
 import { isTokenNeedRefresh } from '../isTokenNeedRefresh';
 import { refreshUserTokens } from '../refreshUserTokens';
@@ -37,8 +37,11 @@ export const requestTokenInterceptor = async (axiosConfig: InternalAxiosRequestC
   if (!accessToken || isAccessNeedRefresh) {
     const tokens = await refreshUserTokens();
 
-    if (!tokens) return axiosConfig;
-    if (!tokens.accessToken) return axiosConfig;
+    if (!tokens || !tokens.accessToken) {
+      store.dispatch(signOut());
+
+      return axiosConfig;
+    }
 
     await storage.setTokens(tokens);
 
