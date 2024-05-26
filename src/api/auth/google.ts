@@ -1,5 +1,5 @@
 import { request } from '@utils/apiUtils/request';
-import { ITokensDto } from '@root/api/auth/dto';
+import { ITokensDto } from './dto';
 
 interface IGoogleSignInResponse {
   idToken?: string | null;

@@ -21,6 +21,8 @@ target 'connect' do
   flags = get_default_flags()
 
   use_react_native!(
+    # TODO: wait fix from react-native team
+    :privacy_file_aggregation_enabled => false,
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
     :hermes_enabled => flags[:hermes_enabled],

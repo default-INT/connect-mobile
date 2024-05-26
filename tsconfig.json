@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "useDefineForClassFields": false,
     "types": ["react-native", "jest"],
     "lib": [
       "es2019",

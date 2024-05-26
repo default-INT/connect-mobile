@@ -44,7 +44,8 @@ Also for debugging you could use a experimental devTools: `npx react-native star
 ## Trouble shooting
 
 1. In Android HTTP requests not sending to `localhost:{port}`: 
-   - For fix this issue you need run this command in your terminal: `adb reverse tcp:{port} tcp:{port}` 
+   - For fix this issue you need run this command in your terminal: `adb reverse tcp:{port} tcp:{port}`
+2. If you updated babel.config you need run this command: `yarn react-native start --reset-cache`
 
 ## Contributing
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
