@@ -47,7 +47,20 @@ Also for debugging you could use a experimental devTools: `npx react-native star
    - For fix this issue you need run this command in your terminal: `adb reverse tcp:{port} tcp:{port}`
 2. If you updated babel.config you need run this command: `yarn react-native start --reset-cache`
 
+
+## Environment variables
+
+Also you need set up env variables (`.env`, `.env.staging`, `.env.prod`), you could get its from head developer, file look like:
+```
+WEB_CLIENT_ID=<WEB_CLIENT_ID>
+IOS_CLIENT_ID=<IOS_CLIENT_ID>
+API_URL=<API_URL>
+
+GOOGLE_MAP_API_KEY=<GOOGLE_MAP_API_KEY>
+```
+
 ## Contributing
+
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 ## License
