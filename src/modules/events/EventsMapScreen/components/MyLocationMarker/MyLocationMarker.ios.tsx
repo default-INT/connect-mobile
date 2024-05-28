@@ -10,7 +10,7 @@ interface IProps {
   location: ICoordinates;
 }
 
-export const MyLocationMarker = memo((props: IProps) => {
+export const MyLocationMarkerIos = memo((props: IProps) => {
   const { location } = props;
 
   return (
@@ -20,4 +20,4 @@ export const MyLocationMarker = memo((props: IProps) => {
   );
 });
 
-MyLocationMarker.displayName = 'MyLocationMarker';
+MyLocationMarkerIos.displayName = 'MyLocationMarker';

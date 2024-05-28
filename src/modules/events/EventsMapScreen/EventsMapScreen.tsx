@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
-import MapView, { Region } from 'react-native-maps';
+import { Region } from 'react-native-maps';
+import MapBox, { MapView } from '@rnmapbox/maps';
 import { geoLoc } from '@utils/location';
 import { Preloader } from '@components/Preloader';
 import { IEventDto, ICoordinates } from '@root/api/events/dto';
@@ -10,6 +11,8 @@ import { EventMarker } from './components/EventMarker';
 import { MyLocationMarker } from './components/MyLocationMarker';
 
 import { styles } from './styles';
+
+// MapBox?.setAccessToken('pk.eyJ1IjoiZGVmYXVsdC1pbnQiLCJhIjoiY2x3cWprd21hMDNjaDJucjFreG9vYngxdSJ9.T-aq5UTA5YNLIinsgVGfpQ');
 
 export const EventsMapScreen = memo(() => {
   const [currentLocation, setCurrentLocation] = useState<ICoordinates | null>(null);
@@ -58,12 +61,7 @@ export const EventsMapScreen = memo(() => {
     <View style={styles.container}>
       <MapView
         style={styles.map}
-        initialRegion={initRegion}
-        onRegionChange={handleRegionChange}
-      >
-        <MyLocationMarker location={currentLocation} />
-        {eventList.map(event => <EventMarker key={event.id} event={event} />)}
-      </MapView>
+      />
     </View>
   );
 });

@@ -11,6 +11,7 @@ declare module 'react-native-config' {
     WEB_CLIENT_ID: string;
     IOS_CLIENT_ID: string;
     API_URL: string;
+    MAP_BOX_PUB_KEY: string;
   }
 
   export const Config: INativeConfig;

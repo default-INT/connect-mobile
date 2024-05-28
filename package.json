@@ -17,6 +17,7 @@
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/native-stack": "^6.9.18",
+    "@rnmapbox/maps": "^10.1.24",
     "axios": "^1.6.8",
     "i18next": "^23.7.8",
     "react": "^18.2.0",

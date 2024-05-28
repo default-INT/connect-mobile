@@ -7,6 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   map: {
-    ...StyleSheet.absoluteFillObject,
+    flex: 1,
   },
 });

@@ -47,6 +47,23 @@ Also for debugging you could use a experimental devTools: `npx react-native star
    - For fix this issue you need run this command in your terminal: `adb reverse tcp:{port} tcp:{port}`
 2. If you updated babel.config you need run this command: `yarn react-native start --reset-cache`
 
+## MapBox
+1. For work with MapBox in locally, you need to set up secret token in your system
+   - iOS: You need to create `.netrc` file in your home directory and put in here access token (https://docs.mapbox.com/ios/maps/guides/install/#configure-credentials)
+   - Android: You need to create a global `gradle.properties` file and put in here access token (https://docs.mapbox.com/android/maps/guides/install/#configure-credentials)
+
+## Environment variables
+
+Also you need set up env variables (`.env`, `.env.staging`, `.env.prod`), you could get its from head developer, file look like:
+```
+WEB_CLIENT_ID=<WEB_CLIENT_ID>
+IOS_CLIENT_ID=<IOS_CLIENT_ID>
+API_URL=<API_URL>
+
+GOOGLE_MAP_API_KEY=<GOOGLE_MAP_API_KEY>
+MAP_BOX_PUB_KEY=<MAP_BOX_PUB_KEY>
+```
+
 ## Contributing
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
