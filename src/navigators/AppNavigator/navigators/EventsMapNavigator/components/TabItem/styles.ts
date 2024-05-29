@@ -12,10 +12,10 @@ export const styles = StyleSheet.create({
     height: s.height(60),
     borderRadius: s.max(60) / 2,
   },
-  activeView: {
+  inactiveView: {
     backgroundColor: theme.primaryRegular,
   },
-  inactiveView: {
+  activeView: {
     backgroundColor: theme.mainBasic,
     borderWidth: s.min(2),
     borderColor: theme.primaryRegular,

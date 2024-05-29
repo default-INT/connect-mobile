@@ -6,6 +6,8 @@ import { theme } from '@root/styles/theme';
 
 import { styles } from './styles';
 
+const MAIN_LVL = 10;
+
 interface IProps {
   location: ICoordinates;
 }
@@ -14,7 +16,7 @@ export const MyLocationMarker = memo((props: IProps) => {
   const { location } = props;
 
   return (
-    <Marker coordinate={location} style={styles.container}>
+    <Marker coordinate={location} style={styles.container} zIndex={MAIN_LVL}>
       <FillMapPinIcon color={theme.mainExtra} />
     </Marker>
   );
