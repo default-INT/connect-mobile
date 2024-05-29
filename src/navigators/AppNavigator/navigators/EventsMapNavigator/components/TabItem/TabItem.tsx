@@ -14,9 +14,9 @@ export const TabItem = memo((props: IProps) => {
   const { focused } = props;
 
   const { viewModifier, iconColor } = useMemo(() => {
-    if (focused) return { viewModifier: styles.activeView, iconColor: theme.mainBasic };
+    if (focused) return { viewModifier: styles.activeView, iconColor: theme.primaryRegular };
 
-    return { viewModifier: styles.inactiveView, iconColor: theme.primaryRegular };
+    return { viewModifier: styles.inactiveView, iconColor: theme.mainBasic };
   }, [focused]);
 
   return (
