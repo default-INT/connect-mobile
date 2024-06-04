@@ -1,8 +1,9 @@
-const path = require("node:path");
+const path = require('node:path');
 
 module.exports = {
   plugins: [
     ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
+    ['react-native-reanimated/plugin'],
     [
       'module-resolver',
       {
@@ -33,7 +34,7 @@ module.exports = {
     {
       test: (fileName) => !fileName.includes('react-native-maps'),
       plugins: [
-        ["@babel/plugin-transform-private-methods", { loose: true }]
+        ['@babel/plugin-transform-private-methods', { loose: true }]
       ]
     },
   ],
