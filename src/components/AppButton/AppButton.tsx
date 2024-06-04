@@ -8,7 +8,7 @@ import { styles } from './styles';
 
 type TButtonProps = Omit<ComponentProps<typeof TouchableOpacity>, 'children'>;
 
-interface IProps extends TButtonProps {
+export interface IProps extends TButtonProps {
   title: string;
   textStyle?: StyleProp<TextStyle>;
   icon?: VFC<SvgProps>;
