@@ -1,14 +1,11 @@
 import Geolocation, {
-  GeolocationError,
-  GeolocationOptions,
-  GeolocationResponse,
-} from '@react-native-community/geolocation';
-
-type TSubFn = (res: GeolocationResponse) => void;
-type TErrorFn = (error: GeolocationError) => void;
+  SuccessCallback,
+  ErrorCallback,
+  GeoWatchOptions,
+} from 'react-native-geolocation-service';
 
 // eslint-disable-next-line max-len
-export const watchPosition = (subscribeFn: TSubFn, errorFn?: TErrorFn, options?: GeolocationOptions) => {
+export const watchPosition = (subscribeFn: SuccessCallback, errorFn?: ErrorCallback, options?: GeoWatchOptions) => {
   const watchId = Geolocation.watchPosition(subscribeFn, errorFn, options);
 
   return () => Geolocation.clearWatch(watchId);

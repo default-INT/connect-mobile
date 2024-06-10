@@ -8,5 +8,9 @@ export const styles = StyleSheet.create({
     padding: s.max(16),
     borderColor: theme.neutralSecondary,
     borderRadius: s.max(6),
+    maxHeight: s.height(50),
+  },
+  formikContainer: {
+    position: 'relative',
   },
 });

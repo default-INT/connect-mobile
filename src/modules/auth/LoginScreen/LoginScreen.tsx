@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react';
 import { Alert, SafeAreaView, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { AppInput } from '@components/AppInput';
+import { AppInput } from '@components/formElements/AppInput';
 import { AppButton, buttonModifiers } from '@components/AppButton';
 import { AppText } from '@components/AppText';
 import { AppleIcon, GoogleIcon } from '@root/assets/icons';

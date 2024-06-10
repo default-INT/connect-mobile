@@ -120,6 +120,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:react-native:+")
     implementation project(':react-native-config')
+    implementation "com.google.android.gms:play-services-location:${rootProject.ext.googlePlayServicesVersion}"
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

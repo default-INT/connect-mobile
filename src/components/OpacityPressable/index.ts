@@ -1,0 +1,1 @@
+export { OpacityPressable } from './OpacityPressable';

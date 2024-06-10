@@ -34,9 +34,74 @@
       "eventsList": "Events",
       "feed": "Feed",
       "profile": "Profile"
+    },
+    "event_map": {
+      "create_new_event": {
+        "title": "Add Event",
+        "description": "Please provide more details about your event, including the type of event and a brief description to facilitate better search results",
+        "optional": "(optional)",
+        "fields": {
+          "title": {
+            "placeholder": "Title"
+          },
+          "event_type": {
+            "label": "Choose event type"
+          },
+          "dates": {
+            "label": "Choose start and finish date"
+          },
+          "start_date": {
+            "placeholder": "Start date"
+          },
+          "finish_date": {
+            "placeholder": "Finish date"
+          },
+          "location": {
+            "label": "Choose event location"
+          },
+          "lang": {
+            "label": "Select spoken language",
+            "placeholder": "Language"
+          },
+          "max_participants": {
+            "label": "Enter maximum participants",
+            "placeholder": "Maximum participants"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Enter a description here...."
+          }
+        },
+        "errors": {
+          "this_field_is_required": "This field is required",
+          "date": {
+            "min_date": "Date must not be earlier than current"
+          },
+          "description": {
+            "max": "Description must be less than 500 symbols"
+          }
+        },
+        "buttons": {
+          "add": "Add",
+          "close": "Close"
+        }
+      }
     }
   },
   "common": {
-    "app_name": "Connect"
+    "app_name": "Connect",
+    "event_types": {
+      "0": "sport",
+      "1": "cafe & restaurant",
+      "2": "walking",
+      "3": "travel",
+      "4": "talking",
+      "5": "bar & drinks",
+      "6": "bicycle",
+      "7": "beach",
+      "8": "activities",
+      "9": "photos",
+      "999": "other"
+    }
   }
 }
