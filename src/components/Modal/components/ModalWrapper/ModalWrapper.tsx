@@ -27,6 +27,7 @@ interface IProps {
 }
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const UP_SWIPE_BIAS = 20;
 // this values needed for scrolling view on android
 const activeOffsetY: [activeOffsetYStart: number, activeOffsetYEnd: number] = [-30, 30];
 const fullPaddingTop = appConfig.isIos ? 50 : 16;
@@ -74,7 +75,7 @@ export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
       return closeModal(modalId);
     }
 
-    if (isFullScreen && translationY > 30) {
+    if (isFullScreen && translationY > UP_SWIPE_BIAS) {
       translate.value = withTiming(0, { duration: BASE_DURATION });
       fillModal.value = withTiming(0, { duration: BASE_DURATION });
 

@@ -3,6 +3,7 @@ import { StyleProp, TextStyle, TouchableOpacity, View } from 'react-native';
 import { SvgProps } from 'react-native-svg';
 import { AppText } from '@components/AppText';
 import { cn } from '@utils/styleUtils/concat';
+import { OpacityPressable } from '@components/OpacityPressable';
 
 import { styles } from './styles';
 
@@ -13,9 +14,9 @@ export interface IProps extends TButtonProps {
   textStyle?: StyleProp<TextStyle>;
   icon?: VFC<SvgProps>;
   iconProps?: SvgProps;
+  disabled?: boolean;
 }
 
-// TODO: replace TouchableOpacity to Pressable
 export const AppButton = memo((props: IProps) => {
   const {
     title,
@@ -27,7 +28,10 @@ export const AppButton = memo((props: IProps) => {
   } = props;
 
   return (
-    <TouchableOpacity {...args} style={cn(styles.button, style)}>
+    <OpacityPressable
+      {...args}
+      layoutStyle={cn(styles.button, style)}
+    >
       <View style={styles.innerContainer}>
         {Icon && (
           <Icon style={styles.icon} width={28} height={28} {...iconProps} />
@@ -36,7 +40,7 @@ export const AppButton = memo((props: IProps) => {
           {title}
         </AppText>
       </View>
-    </TouchableOpacity>
+    </OpacityPressable>
   );
 });
 

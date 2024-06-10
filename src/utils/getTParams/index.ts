@@ -1,0 +1,1 @@
+export { getTParams } from './getTParams';

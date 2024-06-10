@@ -8,13 +8,13 @@ import { s } from '@utils/scaleUtils/scale';
 
 import { styles } from './styles';
 
-export interface IButtonsList extends IAppButtonProps {
+export interface IModalButton extends IAppButtonProps {
   key?: string;
 }
 
 interface IProps extends IModalProps {
   title?: string;
-  buttons?: IButtonsList[];
+  buttons?: IModalButton[];
 }
 
 export const BaseModal = memo((props: PropsWithChildren<IProps>) => {

@@ -5,11 +5,11 @@ import { cn } from '@utils/styleUtils/concat';
 
 import { styles } from './styles';
 
-interface IProps extends ComponentProps<typeof TextInput> {
+export interface IAppInputFieldProps extends ComponentProps<typeof TextInput> {
 
 }
 
-export const AppInput = memo((props: IProps) => {
+export const AppInputField = memo((props: IAppInputFieldProps) => {
   const { style, ...inputProps } = props;
 
   return (
@@ -21,4 +21,4 @@ export const AppInput = memo((props: IProps) => {
   );
 });
 
-AppInput.displayName = 'AppInput';
+AppInputField.displayName = 'AppInput';

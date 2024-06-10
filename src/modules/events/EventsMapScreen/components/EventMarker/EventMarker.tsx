@@ -4,7 +4,7 @@ import { Marker } from 'react-native-maps';
 import { EventType, IEventDto } from '@root/api/events/dto';
 import { theme } from '@root/styles/theme';
 import { cn } from '@utils/styleUtils/concat';
-import { iconByType } from './config';
+import { iconByType } from '@constants/iconByType';
 
 import { styles } from './styles';
 

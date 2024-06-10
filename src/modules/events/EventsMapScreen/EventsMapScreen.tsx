@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import MapView, { Region } from 'react-native-maps';
+import { GeoError } from 'react-native-geolocation-service';
 import { geoLoc } from '@utils/location';
 import { Preloader } from '@components/Preloader';
 import { IEventDto, ICoordinates } from '@root/api/events/dto';
@@ -41,10 +42,13 @@ export const EventsMapScreen = memo(() => {
       setCurrentLocation({ latitude, longitude });
     })();
 
+    // eslint-disable-next-line no-console
+    const errorLog = (error: GeoError) => { console.error(error); };
+
     return geoLoc.watchPosition(({ coords: { latitude, longitude } }) => setCurrentLocation({
       longitude,
       latitude,
-    }));
+    }), errorLog, { interval: 1000, enableHighAccuracy: false });
   }, []);
 
   if (!currentLocation) return <Preloader />;
