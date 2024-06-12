@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import MapView, { Region } from 'react-native-maps';
 import { GeoError } from 'react-native-geolocation-service';
@@ -7,6 +7,7 @@ import { Preloader } from '@components/Preloader';
 import { IEventDto, ICoordinates } from '@root/api/events/dto';
 import { api } from '@root/api';
 import { throttle } from '@utils/throttle';
+import { eventMapPubSub } from './utils/eventMapPubSub';
 import { EventMarker } from './components/EventMarker';
 import { MyLocationMarker } from './components/MyLocationMarker';
 
@@ -15,11 +16,19 @@ import { styles } from './styles';
 export const EventsMapScreen = memo(() => {
   const [currentLocation, setCurrentLocation] = useState<ICoordinates | null>(null);
   const [eventList, setEventList] = useState<IEventDto[]>([]);
+  const prevRegionRef = useRef<Region | null>(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRegionChange = useCallback(throttle(async (regions: Region) => {
     try {
-      const { latitude, longitude, latitudeDelta, longitudeDelta } = regions;
+      const {
+        latitude,
+        longitude,
+        latitudeDelta,
+        longitudeDelta,
+      } = regions || prevRegionRef.current;
+
+      if (regions) prevRegionRef.current = regions;
       const radius = geoLoc.calcRadius(latitude, latitudeDelta, longitudeDelta);
 
       const events = await api.events.location.getByCoordinates({
@@ -44,12 +53,16 @@ export const EventsMapScreen = memo(() => {
 
     // eslint-disable-next-line no-console
     const errorLog = (error: GeoError) => { console.error(error); };
+    const offSub = eventMapPubSub.subscribe(handleRegionChange);
 
-    return geoLoc.watchPosition(({ coords: { latitude, longitude } }) => setCurrentLocation({
-      longitude,
-      latitude,
-    }), errorLog, { interval: 1000, enableHighAccuracy: false });
-  }, []);
+    return () => {
+      offSub();
+      geoLoc.watchPosition(({ coords: { latitude, longitude } }) => setCurrentLocation({
+        longitude,
+        latitude,
+      }), errorLog, { interval: 1000, enableHighAccuracy: false });
+    };
+  }, [handleRegionChange]);
 
   if (!currentLocation) return <Preloader />;
 

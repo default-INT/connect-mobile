@@ -48,13 +48,13 @@
             "label": "Choose event type"
           },
           "dates": {
-            "label": "Choose start and finish date"
+            "label": "Choose event date and time"
           },
-          "start_date": {
-            "placeholder": "Start date"
+          "event_date": {
+            "placeholder": "Date"
           },
-          "finish_date": {
-            "placeholder": "Finish date"
+          "event_time": {
+            "placeholder": "Time"
           },
           "location": {
             "label": "Choose event location"
@@ -73,6 +73,7 @@
           }
         },
         "errors": {
+          "common": "Something went wrong...",
           "this_field_is_required": "This field is required",
           "date": {
             "min_date": "Date must not be earlier than current"
@@ -89,6 +90,7 @@
     }
   },
   "common": {
+    "error": "Something went wrong...",
     "app_name": "Connect",
     "event_types": {
       "0": "sport",
