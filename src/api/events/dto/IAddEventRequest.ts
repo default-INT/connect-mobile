@@ -1,12 +1,12 @@
-import { ILocation } from './ILocation';
+import { ICoordinates } from '@root/api/events/dto/ICoordinates';
 import { EventType } from './EventType';
 
 export interface IAddEventRequest {
   title: string;
-  description: string | null;
   eventType: EventType;
-  finishDate: string;
-  maxParticipants?: number;
+  eventDate: string;
+  coords: ICoordinates;
+  maxParticipants?: number | null;
+  description?: string | null;
   lang?: string | null;
-  location: ILocation;
 }

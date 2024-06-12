@@ -14,7 +14,7 @@ interface IProps {
 
 export const EventMarker = memo((props: IProps) => {
   const { event } = props;
-  const { coords } = event.location;
+  const { coords } = event;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

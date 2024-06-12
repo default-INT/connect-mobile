@@ -3,8 +3,8 @@ import { EventType, ICoordinates } from '@root/api/events/dto';
 export interface IFormFields {
   title: string | null;
   eventType: EventType | null;
-  startDate: Date | null;
-  finishDate: Date | null;
+  eventDate: Date | null;
+  eventTime: Date | null;
   coords: ICoordinates | null;
   lang: string | null;
   maxParticipants: number | null;
@@ -14,8 +14,8 @@ export interface IFormFields {
 export const initialValues: IFormFields = {
   title: null,
   eventType: null,
-  startDate: null,
-  finishDate: null,
+  eventDate: null,
+  eventTime: null,
   coords: null,
   lang: null,
   maxParticipants: null,

@@ -1,6 +1,6 @@
 import { memo, useCallback, useState } from 'react';
-import { ScrollView, View } from 'react-native';
-import { Formik } from 'formik';
+import { Alert, ScrollView, View } from 'react-native';
+import { Formik, FormikHelpers } from 'formik';
 import { AppText } from '@components/AppText';
 import { BaseModal } from '@components/BaseModal';
 import { IModalProps } from '@root/types/modal';
@@ -12,6 +12,8 @@ import { MapSelector } from '@components/formElements/MapSelector';
 import { TextArea } from '@components/formElements/TextArea';
 import { DatePicker } from '@components/formElements/DatePicker';
 import { api } from '@root/api';
+import { date } from '@utils/date';
+import { eventMapPubSub } from '../../utils/eventMapPubSub';
 import { IFormFields, initialValues } from './constants';
 import { mapToRequest } from './utils/mapToRequest';
 import { EventSelector } from './components/EventSelector';
@@ -19,27 +21,39 @@ import { getAddEventSchema } from './utils/getEventSchema';
 
 import { styles } from './styles';
 
+type THelpers = FormikHelpers<IFormFields>;
+
 interface IProps extends IModalProps {
 
 }
 
 export const AddEventModal = memo((props: IProps) => {
   const { modalId } = props;
-  const { t } = useTranslation('app', { keyPrefix: 'event_map.create_new_event' });
+  const { t } = useTranslation(['app', 'common'], { keyPrefix: 'event_map.create_new_event' });
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const handleAddEvent = useCallback(async (values: IFormFields) => {
+  const handleAddEvent = useCallback(async (values: IFormFields, helpers: THelpers) => {
     setIsDisabled(true);
+    const { setFieldError } = helpers;
     try {
+      const currDate = date.addTime(values.eventDate, values.eventTime);
+      if (!currDate || currDate < new Date()) {
+        setFieldError('eventTime', t('errors.date.min_date'));
+
+        return;
+      }
       const data = mapToRequest(values);
       await api.events.addEvent(data);
+      eventMapPubSub.notify();
       closeModal(modalId);
     } catch (e) {
       // eslint-disable-next-line no-console
-      console.error(e);
+      console.error((e as any).message);
+      Alert.alert('Error', t('errors.common'));
+    } finally {
+      setIsDisabled(false);
     }
-    setIsDisabled(false);
-  }, [modalId]);
+  }, [modalId, t]);
 
   return (
     <Formik
@@ -76,14 +90,19 @@ export const AddEventModal = memo((props: IProps) => {
               <AppText>{t('fields.dates.label')}</AppText>
               <View style={styles.dateContainer}>
                 <DatePicker
-                  formikName='startDate'
-                  placeholder={t('fields.start_date.placeholder')}
+                  formikName='eventDate'
+                  placeholder={t('fields.event_date.placeholder')}
+                  minimumDate={new Date()}
+                  dateOptions={date.options.shortD()}
+                  mode='date'
                   formikModifiers={styles.input}
                   style={styles.input}
                 />
                 <DatePicker
-                  formikName='finishDate'
-                  placeholder={t('fields.finish_date.placeholder')}
+                  formikName='eventTime'
+                  placeholder={t('fields.event_time.placeholder')}
+                  dateOptions={date.options.shortT()}
+                  mode='time'
                   formikModifiers={styles.input}
                   style={styles.input}
                 />
@@ -111,6 +130,7 @@ export const AddEventModal = memo((props: IProps) => {
               </View>
               <TextArea
                 formikName='description'
+                numberOfLines={6}
                 placeholder={t('fields.description.placeholder')}
               />
             </View>
