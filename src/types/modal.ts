@@ -13,6 +13,7 @@ export interface IModalProps {
 
 export interface IModal {
   component: (props: any) => JSX.Element;
+  isRemoved: boolean;
   modalProps: IModalProps;
   beforeCloseCallback?: TModalCallback;
 }
