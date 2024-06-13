@@ -1,5 +1,6 @@
 import { memo, useLayoutEffect } from 'react';
 import { Provider } from 'react-redux';
+import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,14 +17,16 @@ const App = memo(() => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <GestureHandlerRootView style={gestureWrapStyle}>
-        <NavigationContainer>
-          <RootNavigator />
-        </NavigationContainer>
-        <Modal />
-      </GestureHandlerRootView>
-    </Provider>
+    <KeyboardProvider>
+      <Provider store={store}>
+        <GestureHandlerRootView style={gestureWrapStyle}>
+          <NavigationContainer>
+            <RootNavigator />
+          </NavigationContainer>
+          <Modal />
+        </GestureHandlerRootView>
+      </Provider>
+    </KeyboardProvider>
   );
 });
 

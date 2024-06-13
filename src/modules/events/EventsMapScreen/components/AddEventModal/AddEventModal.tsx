@@ -1,10 +1,11 @@
 import { memo, useCallback, useState } from 'react';
-import { Alert, ScrollView, View } from 'react-native';
+import { Alert, View } from 'react-native';
 import { Formik, FormikHelpers } from 'formik';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { useTranslation } from 'react-i18next';
 import { AppText } from '@components/AppText';
 import { BaseModal } from '@components/BaseModal';
 import { IModalProps } from '@root/types/modal';
-import { useTranslation } from 'react-i18next';
 import { buttonModifiers } from '@components/AppButton';
 import { closeModal } from '@utils/modal/closeModal';
 import { AppInput } from '@components/formElements/AppInput';
@@ -79,10 +80,13 @@ export const AddEventModal = memo((props: IProps) => {
             },
           ]}
         >
-          <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+          <KeyboardAwareScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
               <AppText>{t('description')}</AppText>
-              <AppInput formikName='title' placeholder={t('fields.title.placeholder')} />
+              <AppInput
+                formikName='title'
+                placeholder={t('fields.title.placeholder')}
+              />
               <AppText>{t('fields.event_type.label')}</AppText>
               <EventSelector />
               <AppText>{t('fields.location.label')}</AppText>
@@ -134,7 +138,7 @@ export const AddEventModal = memo((props: IProps) => {
                 placeholder={t('fields.description.placeholder')}
               />
             </View>
-          </ScrollView>
+          </KeyboardAwareScrollView>
         </BaseModal>
       )}
     </Formik>

@@ -6,7 +6,6 @@ import { cn } from '@utils/styleUtils/concat';
 import { styles } from './styles';
 
 export interface IAppInputFieldProps extends ComponentProps<typeof TextInput> {
-
 }
 
 export const AppInputField = memo((props: IAppInputFieldProps) => {

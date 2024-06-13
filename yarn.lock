@@ -4827,6 +4827,7 @@ __metadata:
     react-native-date-picker: ^5.0.4
     react-native-geolocation-service: ^5.3.1
     react-native-gesture-handler: ^2.16.2
+    react-native-keyboard-controller: ^1.12.2
     react-native-localize: ^3.0.4
     react-native-maps: ^1.15.2
     react-native-reanimated: ^3.12.0
@@ -9511,6 +9512,17 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 3f3309de471b8de654624c54793f6d72236869156ee61c1adc8bba0f4aca6ffc8ed02035eb85820473091d33eb5ec8b42a0e387a21ec25dc30ee345dff0c1142
+  languageName: node
+  linkType: hard
+
+"react-native-keyboard-controller@npm:^1.12.2":
+  version: 1.12.2
+  resolution: "react-native-keyboard-controller@npm:1.12.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+    react-native-reanimated: ">=2.3.0"
+  checksum: 2712f5209ae30ff3056bc4aca1b93ddd2ee5b72b4b76b645624cac3b8578f4f062830fa0e834d64687572130f0d98fa7e2a674d6db1b8bed08a1acb8b05f24c1
   languageName: node
   linkType: hard
 
