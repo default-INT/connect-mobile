@@ -1,5 +1,6 @@
 import { memo, PropsWithChildren, useCallback, useEffect } from 'react';
 import { Dimensions, Pressable } from 'react-native';
+import { useDispatch } from 'react-redux';
 import Animated, {
   Easing, interpolate,
   useAnimatedStyle,
@@ -15,14 +16,15 @@ import {
 import { cn } from '@utils/styleUtils/concat';
 import { closeModal } from '@utils/modal/closeModal';
 import { appConfig } from '@constants/appConfig';
+import { removeFromQueueById } from '@root/action/modal';
 import { BASE_DURATION } from '../../config';
 
 import { styles } from './styles';
 
 interface IProps {
-  isVisible: boolean;
   modalId: string;
   baseHeight: number;
+  isRemoved: boolean;
   autoHeight?: boolean;
 }
 
@@ -31,21 +33,34 @@ const UP_SWIPE_BIAS = 20;
 // this values needed for scrolling view on android
 const activeOffsetY: [activeOffsetYStart: number, activeOffsetYEnd: number] = [-30, 30];
 const fullPaddingTop = appConfig.isIos ? 50 : 16;
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
-  const { modalId, isVisible, children, baseHeight, autoHeight = true } = props;
+  const { modalId, children, baseHeight, isRemoved, autoHeight = true } = props;
   const fillModal = useSharedValue(0);
   const translate = useSharedValue(baseHeight);
+  const backgroundOpacity = useSharedValue(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     translate.value = withTiming(
-      isVisible ? 0 : baseHeight,
+      0,
       {
         duration: BASE_DURATION,
         easing: Easing.out(Easing.ease),
       },
     );
-  }, [isVisible, baseHeight, translate]);
+  }, [baseHeight, translate]);
+
+  useEffect(() => {
+    backgroundOpacity.value = withTiming(isRemoved ? 0 : 1, { duration: BASE_DURATION });
+    if (!isRemoved) return;
+    translate.value = withTiming(SCREEN_HEIGHT, { duration: BASE_DURATION });
+    setTimeout(() => {
+      dispatch(removeFromQueueById(modalId));
+    }, BASE_DURATION);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isRemoved]);
 
   const animatedStyle = useAnimatedStyle(() => {
     const inputRange = [0, 1];
@@ -56,6 +71,10 @@ export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
       paddingTop: interpolate(fillModal.value, inputRange, [0, fullPaddingTop]),
     });
   });
+
+  const animatedOpacity = useAnimatedStyle(() => ({
+    opacity: backgroundOpacity.value,
+  }));
 
   const handleGestureEvent = useCallback((event: GestureEvent<PanGestureHandlerEventPayload>) => {
     const { translationY } = event.nativeEvent;
@@ -92,13 +111,16 @@ export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
   }, [modalId, fillModal, translate, autoHeight]);
 
   const handleClosePress = useCallback(() => {
-    if (!isVisible) return;
+    if (isRemoved) return;
     closeModal(modalId);
-  }, [isVisible, modalId]);
+  }, [isRemoved, modalId]);
 
   return (
     <>
-      <Pressable style={styles.hintPressable} onPress={handleClosePress} />
+      <AnimatedPressable
+        style={cn(styles.hintPressable, animatedOpacity)}
+        onPress={handleClosePress}
+      />
       <PanGestureHandler
         activeOffsetY={activeOffsetY}
         onGestureEvent={handleGestureEvent}

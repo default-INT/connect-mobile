@@ -1,8 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 import { Alert, View } from 'react-native';
-import { Formik, FormikHelpers } from 'formik';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { useTranslation } from 'react-i18next';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
+import { Formik, FormikHelpers } from 'formik';
 import { AppText } from '@components/AppText';
 import { BaseModal } from '@components/BaseModal';
 import { IModalProps } from '@root/types/modal';
@@ -115,10 +115,7 @@ export const AddEventModal = memo((props: IProps) => {
                 <AppText>{t('fields.lang.label')}</AppText>
                 <AppText style={styles.optionalText}>{t('optional')}</AppText>
               </View>
-              <AppInput
-                formikName='lang'
-                placeholder={t('fields.lang.placeholder')}
-              />
+              <AppInput formikName='lang' placeholder={t('fields.lang.placeholder')} />
               <View style={styles.field}>
                 <AppText>{t('fields.max_participants.label')}</AppText>
                 <AppText style={styles.optionalText}>{t('optional')}</AppText>

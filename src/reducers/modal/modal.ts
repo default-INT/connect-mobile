@@ -2,7 +2,7 @@ import {
   CLEAR_QUEUE,
   REMOVE_CALLBACK,
   REMOVE_COMPONENT,
-  REMOVE_COMPONENT_BY_ID,
+  REMOVE_COMPONENT_BY_ID, REMOVE_FROM_QUEUE_BY_ID,
   RESET,
   SET_CALLBACK, SET_COMPONENT,
 } from '@root/action/modal';
@@ -21,10 +21,17 @@ export const modalQueue = (
   switch (action.type) {
     case SET_COMPONENT:
       return [...state, action.payload as IModal];
-    case REMOVE_COMPONENT:
-      return state.slice(0, -1);
+    case REMOVE_COMPONENT: {
+      const lastItem = state[state.length - 1];
+
+      return [...state.slice(0, -1), { ...lastItem, isRemoved: true }];
+    }
     case REMOVE_COMPONENT_BY_ID:
-      return state.filter(modalItem => modalItem.modalProps.modalId !== (action.payload as string));
+      return state.map(modalItem => {
+        if (modalItem.modalProps.modalId !== (action.payload as string)) return modalItem;
+
+        return { ...modalItem, isRemoved: true };
+      });
     case SET_CALLBACK:
       return state.map((modalItem: IModal) => {
         const { modalId, cb } = action.payload as ICallbackPayload;
@@ -49,6 +56,8 @@ export const modalQueue = (
 
         return modalItem;
       });
+    case REMOVE_FROM_QUEUE_BY_ID:
+      return state.filter(modalItem => modalItem.modalProps.modalId !== (action.payload as string));
     case CLEAR_QUEUE:
       return [];
     case RESET:

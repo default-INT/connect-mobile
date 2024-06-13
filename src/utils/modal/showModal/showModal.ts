@@ -23,6 +23,7 @@ export const showModal = (component: TComponent, props: IProps = {}) => {
       component,
       modalProps,
       beforeCloseCallback: props.beforeCloseCallback,
+      isRemoved: false,
     }),
   );
 

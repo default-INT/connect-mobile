@@ -7,13 +7,12 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    zIndex: 2,
     borderTopRightRadius: s.max(16),
     borderTopLeftRadius: s.max(16),
     backgroundColor: theme.mainBasic,
   },
   hintPressable: {
     ...StyleSheet.absoluteFillObject,
-    zIndex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
 });

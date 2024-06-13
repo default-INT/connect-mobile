@@ -10,6 +10,9 @@ export const removeComponentFromQueue = actionCreator<undefined>(REMOVE_COMPONEN
 export const REMOVE_COMPONENT_BY_ID = 'modal/REMOVE_COMPONENT_BY_ID';
 export const removeComponentByIdFromQueue = actionCreator<string>(REMOVE_COMPONENT_BY_ID);
 
+export const REMOVE_FROM_QUEUE_BY_ID = 'modal/REMOVE_FROM_QUEUE_BY_ID';
+export const removeFromQueueById = actionCreator<string>(REMOVE_FROM_QUEUE_BY_ID);
+
 export const CLEAR_QUEUE = 'modal/CLEAR_QUEUE';
 export const clearQueue = actionCreator<undefined>(CLEAR_QUEUE);
 
