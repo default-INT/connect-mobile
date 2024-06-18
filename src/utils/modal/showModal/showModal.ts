@@ -1,7 +1,9 @@
+import { MemoExoticComponent } from 'react';
 import { updateComponentQueue } from '@root/action/modal';
 import { store } from '@root/store';
 
-export type TComponent = (props: any) => JSX.Element;
+export type TComponent = ((props: any) => JSX.Element)
+| MemoExoticComponent<(props: any) => JSX.Element>;
 
 export interface IProps {
   [key: string]: any;

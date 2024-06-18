@@ -3,6 +3,7 @@ import BeachIcon from './beach.svg';
 import BicycleIcon from './bicycle.svg';
 import CalendarIcon from './calendar.svg';
 import ChatsIcon from './chats.svg';
+import CheckMarkIcon from './check-mark.svg';
 import CircleAddIcon from './circle-add.svg';
 import CompassIcon from './compass.svg';
 import FillCocktailIcon from './fill-cocktail.svg';
@@ -25,6 +26,7 @@ export {
   BicycleIcon,
   CalendarIcon,
   ChatsIcon,
+  CheckMarkIcon,
   CircleAddIcon,
   CompassIcon,
   FillCocktailIcon,

@@ -1,4 +1,5 @@
 import { EventType, ICoordinates } from '@root/api/events/dto';
+import { ISelectOption } from '@components/formElements/Select/types';
 
 export interface IFormFields {
   title: string | null;
@@ -6,7 +7,7 @@ export interface IFormFields {
   eventDate: Date | null;
   eventTime: Date | null;
   coords: ICoordinates | null;
-  lang: string | null;
+  lang: ISelectOption<number> | null;
   maxParticipants: number | null;
   description: string | null;
 }

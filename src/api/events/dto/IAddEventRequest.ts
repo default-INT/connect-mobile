@@ -8,5 +8,5 @@ export interface IAddEventRequest {
   coords: ICoordinates;
   maxParticipants?: number | null;
   description?: string | null;
-  lang?: string | null;
+  langId?: number | null;
 }

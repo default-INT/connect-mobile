@@ -1,3 +1,5 @@
+import { MemoExoticComponent } from 'react';
+
 export type TModalCallback = (close: () => void) => void;
 
 export interface IModalProps {
@@ -7,12 +9,13 @@ export interface IModalProps {
   preventCloseOnDimmerClick?: boolean;
   hideDimmer?: boolean;
   preventCloseByHistoryChange?: boolean;
+  fullHeight?: boolean;
   baseHeight?: number;
   autoHeight?: boolean;
 }
 
 export interface IModal {
-  component: (props: any) => JSX.Element;
+  component: ((props: any) => JSX.Element) | MemoExoticComponent<(props: any) => JSX.Element>;
   isRemoved: boolean;
   modalProps: IModalProps;
   beforeCloseCallback?: TModalCallback;
