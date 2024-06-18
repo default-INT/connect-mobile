@@ -92,6 +92,7 @@
   "common": {
     "error": "Something went wrong...",
     "app_name": "Connect",
+    "apply": "Apply",
     "event_types": {
       "0": "sport",
       "1": "cafe & restaurant",

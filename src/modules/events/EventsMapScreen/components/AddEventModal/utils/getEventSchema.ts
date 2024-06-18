@@ -11,7 +11,7 @@ export const getAddEventSchema = () => Yup.object().shape({
     .required('app:event_map.create_new_event.errors.this_field_is_required'),
   coords: Yup.object()
     .required('app:event_map.create_new_event.errors.this_field_is_required'),
-  lang: Yup.string().nullable(),
+  lang: Yup.object().nullable(),
   maxParticipants: Yup.number().nullable(),
   description: Yup.string().nullable()
     .max(500, 'app:event_map.create_new_event.errors.description.max'),

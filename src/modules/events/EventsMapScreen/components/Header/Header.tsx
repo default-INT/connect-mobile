@@ -21,7 +21,7 @@ export const Header = memo(() => {
   const { t } = useTranslation('common');
 
   const handleAddPress = useCallback(() => {
-    showModal(props => <AddEventModal {...props} />, { baseHeight: 600 });
+    showModal(AddEventModal, { baseHeight: 600 });
   }, []);
 
   return (

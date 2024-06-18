@@ -26,17 +26,18 @@ interface IProps {
   baseHeight: number;
   isRemoved: boolean;
   autoHeight?: boolean;
+  fullHeight?: boolean;
 }
 
 const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-const UP_SWIPE_BIAS = 20;
+const UP_SWIPE_BIAS = 10;
 // this values needed for scrolling view on android
 const activeOffsetY: [activeOffsetYStart: number, activeOffsetYEnd: number] = [-30, 30];
 const fullPaddingTop = appConfig.isIos ? 50 : 16;
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
-  const { modalId, children, baseHeight, isRemoved, autoHeight = true } = props;
+  const { modalId, children, baseHeight, isRemoved, autoHeight = true, fullHeight } = props;
   const fillModal = useSharedValue(0);
   const translate = useSharedValue(baseHeight);
   const backgroundOpacity = useSharedValue(0);
@@ -50,7 +51,10 @@ export const ModalWrapper = memo((props: PropsWithChildren<IProps>) => {
         easing: Easing.out(Easing.ease),
       },
     );
-  }, [baseHeight, translate]);
+    if (!fullHeight) return;
+    fillModal.value = withTiming(1, { duration: BASE_DURATION });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [baseHeight, fullHeight]);
 
   useEffect(() => {
     backgroundOpacity.value = withTiming(isRemoved ? 0 : 1, { duration: BASE_DURATION });

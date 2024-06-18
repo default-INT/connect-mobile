@@ -1,5 +1,5 @@
 import { memo, PropsWithChildren } from 'react';
-import { View } from 'react-native';
+import { StyleProp, View, ViewStyle } from 'react-native';
 import { IModalProps } from '@root/types/modal';
 import { cn } from '@utils/styleUtils/concat';
 import { AppText } from '@components/AppText';
@@ -15,6 +15,9 @@ export interface IModalButton extends IAppButtonProps {
 interface IProps extends IModalProps {
   title?: string;
   buttons?: IModalButton[];
+  bodyStyle?: StyleProp<ViewStyle>;
+  buttonContentStyle?: StyleProp<ViewStyle>;
+  headerStyle?: StyleProp<ViewStyle>;
 }
 
 export const BaseModal = memo((props: PropsWithChildren<IProps>) => {
@@ -22,18 +25,21 @@ export const BaseModal = memo((props: PropsWithChildren<IProps>) => {
     title,
     children,
     buttons,
+    bodyStyle,
+    buttonContentStyle,
+    headerStyle,
   } = props;
 
   const paddingBottom = buttons ? s.height(100) : s.height(30);
 
   return (
     <>
-      <View style={cn(styles.body, { paddingBottom })}>
-        {title && <AppText style={styles.title}>{title}</AppText>}
+      <View style={[styles.body, { paddingBottom }, bodyStyle]}>
+        {title && <AppText style={[styles.title, headerStyle]}>{title}</AppText>}
         {children}
       </View>
       {buttons && (
-        <View style={styles.buttonContainer}>
+        <View style={cn(styles.buttonContainer, buttonContentStyle)}>
           {buttons?.map((item, idx) => (
             <AppButton
               key={item.key || `${idx}`}

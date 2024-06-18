@@ -6,11 +6,14 @@ import { theme } from '@root/styles/theme';
 import { geoLoc } from '@utils/location';
 import { debounce } from '@utils/debounce';
 import { ICoordinates } from '@root/api/events/dto';
-
 import { Preloader } from '@components/Preloader';
+import { showModal } from '@utils/modal/showModal';
+import { ModalSelector } from './components/ModalSelector';
+
 import { styles } from './styles';
 
 export interface IMapSelectorProps {
+  modalTitle?: string;
   initialValue?: Region;
   onChange?: (value: ICoordinates) => void;
 }
@@ -21,6 +24,7 @@ export const MapSelectorField = memo((props: IMapSelectorProps) => {
   const {
     onChange,
     initialValue,
+    modalTitle,
   } = props;
 
   const [initRegion, setInitRegion] = useState(initialValue);
@@ -30,7 +34,16 @@ export const MapSelectorField = memo((props: IMapSelectorProps) => {
   const handleRegionChange = useCallback(debounce((region: Region) => {
     const { latitude, longitude } = region;
     if (onChange) onChange({ latitude, longitude });
+    setInitRegion(region);
   }, 1000), []);
+
+  const handlePress = useCallback(() => {
+    if (!initRegion) return;
+    showModal(
+      ModalSelector,
+      { fullHeight: true, initRegion, handleChange: handleRegionChange, modalTitle },
+    );
+  }, [initRegion, modalTitle, handleRegionChange]);
 
   useEffect(() => {
     if (initRegion) return;
@@ -57,8 +70,14 @@ export const MapSelectorField = memo((props: IMapSelectorProps) => {
   if (isLoading) return <Preloader />;
 
   return (
-    <Pressable style={styles.container}>
-      <MapView style={styles.map} region={initRegion} onRegionChange={handleRegionChange} />
+    <Pressable style={styles.container} onPress={handlePress}>
+      <MapView
+        style={styles.map}
+        region={initRegion}
+        scrollEnabled={false}
+        zoomEnabled={false}
+        rotateEnabled={false}
+      />
       <FillMapPinIcon width={54} height={54} color={theme.mainExtra} />
     </Pressable>
   );
