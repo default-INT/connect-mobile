@@ -19,13 +19,8 @@ export const styles = StyleSheet.create({
     padding: iconPadding,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  activeMarker: {
-    backgroundColor: theme.mainBasic,
+    backgroundColor: theme.primaryRegular,
     borderColor: theme.primaryRegular,
     borderWidth: s.max(2),
-  },
-  inactiveMarker: {
-    backgroundColor: theme.primaryRegular,
   },
 });

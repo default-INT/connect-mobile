@@ -36,6 +36,9 @@
       "profile": "Profile"
     },
     "event_map": {
+      "markers": {
+        "people": "{{value}} people"
+      },
       "create_new_event": {
         "title": "Add Event",
         "description": "Please provide more details about your event, including the type of event and a brief description to facilitate better search results",
