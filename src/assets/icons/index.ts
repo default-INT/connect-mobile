@@ -20,8 +20,10 @@ import MapPinLocationIcon from './map-pin-location.svg';
 import NotepadIcon from './notepad.svg';
 import PinQuestionIcon from './pin-question.svg';
 import RouteIcon from './route.svg';
+import SadIcon from './sad.svg';
 import SmileIcon from './smile.svg';
 import TimeIcon from './time.svg';
+import TrashIcon from './trash.svg';
 import UserIcon from './user.svg';
 
 export {
@@ -47,7 +49,9 @@ export {
   NotepadIcon,
   PinQuestionIcon,
   RouteIcon,
+  SadIcon,
   SmileIcon,
   TimeIcon,
+  TrashIcon,
   UserIcon,
 };

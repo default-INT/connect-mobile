@@ -2,6 +2,7 @@ import * as Yup from 'yup';
 
 export const getAddEventSchema = () => Yup.object().shape({
   title: Yup.string()
+    .max(30)
     .trim()
     .required('app:event_map.create_new_event.errors.this_field_is_required'),
   eventDate: Yup.date()
