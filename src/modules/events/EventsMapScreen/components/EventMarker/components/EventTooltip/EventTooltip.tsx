@@ -5,13 +5,10 @@ import { View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import { AppText } from '@components/AppText';
 import { IEventDto } from '@root/api/events/dto';
-import { iconByType } from '@constants/iconByType';
-import { CalendarDatesIcon, Map360Icon, TimeIcon, UserIcon } from '@root/assets/icons';
-import { formatDate } from '@utils/date/formatDate';
-import { formatOptions } from '@utils/date/formatDate/constants';
 import { showModal } from '@utils/modal/showModal';
-import { BaseModal } from '@components/BaseModal';
+import { getMetadata } from '../utils/getMetadata';
 import { TooltipItem } from '../TooltipItem';
+import { EventInfoModal } from '../EventInfoModal';
 
 import { styles } from './styles';
 
@@ -24,31 +21,10 @@ export const EventTooltip = memo((props: IProps) => {
   const { t } = useTranslation();
 
   const handlePress = useCallback(() => {
-    showModal(BaseModal, { title: event.title });
-  }, [event.title]);
+    showModal(EventInfoModal, { event, baseHeight: 650 });
+  }, [event]);
 
-  const contentTooltips = useMemo(() => [
-    {
-      icon: iconByType[event.eventType],
-      title: t(`common:event_types.${event.eventType}`),
-    },
-    {
-      icon: CalendarDatesIcon,
-      title: formatDate(event.eventDate, { ...formatOptions.fullD, delimiter: '.' }),
-    },
-    {
-      icon: TimeIcon,
-      title: formatDate(event.eventDate, formatOptions.shortT),
-    },
-    event.lang ? {
-      icon: Map360Icon,
-      title: event.lang.code,
-    } : null,
-    event.maxParticipants ? {
-      icon: UserIcon,
-      title: t('app:event_map.markers.people', { value: event.maxParticipants }),
-    } : null,
-  ], [event, t]);
+  const contentTooltips = useMemo(() => getMetadata(event, t), [event, t]);
 
   return (
     <Callout tooltip onPress={handlePress}>

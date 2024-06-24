@@ -4,8 +4,16 @@ import { Fonts } from '@root/assets/fonts';
 import { s } from '@utils/scaleUtils/scale';
 
 export const buttonModifiers = StyleSheet.create({
+  updateButton: {
+    backgroundColor: theme.amber,
+  },
   secondaryButton: {
     backgroundColor: theme.mainBasic,
+    borderColor: theme.primaryRegular,
+    borderWidth: s.max(1),
+  },
+  transparentButton: {
+    backgroundColor: 'transparent',
     borderColor: theme.primaryRegular,
     borderWidth: s.max(1),
   },

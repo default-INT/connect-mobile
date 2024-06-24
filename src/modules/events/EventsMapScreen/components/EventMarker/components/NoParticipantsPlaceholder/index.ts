@@ -1,0 +1,1 @@
+export { NoParticipantsPlaceholder } from './NoParticipantsPlaceholder';

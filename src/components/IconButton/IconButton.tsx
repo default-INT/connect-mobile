@@ -1,20 +1,17 @@
-import { memo, useCallback, VFC } from 'react';
+import { memo, VFC } from 'react';
 import {
-  Pressable,
   PressableProps,
-  PressableStateCallbackType,
   StyleProp,
   ViewStyle,
 } from 'react-native';
 import { SvgProps } from 'react-native-svg';
-import { cn } from '@utils/styleUtils/concat';
+import { OpacityPressable } from '@components/OpacityPressable';
 
 interface IProps extends Omit<PressableProps, 'children'> {
   icon: VFC<SvgProps>;
   iconProps?: SvgProps;
   iconStyle?: StyleProp<ViewStyle>;
   staticStyle?: StyleProp<ViewStyle>;
-  activeOpacity?: number;
 }
 
 export const IconButton = memo((props: IProps) => {
@@ -23,19 +20,13 @@ export const IconButton = memo((props: IProps) => {
     iconStyle,
     staticStyle,
     iconProps,
-    activeOpacity = 0.5,
     ...pressableProps
   } = props;
 
-  const pressStyle = useCallback(({ pressed }: PressableStateCallbackType) => cn(
-    { opacity: pressed ? activeOpacity : 1 },
-    staticStyle,
-  ), [activeOpacity, staticStyle]);
-
   return (
-    <Pressable style={pressStyle} {...pressableProps}>
+    <OpacityPressable {...pressableProps}>
       <Icon {...iconProps} />
-    </Pressable>
+    </OpacityPressable>
   );
 });
 

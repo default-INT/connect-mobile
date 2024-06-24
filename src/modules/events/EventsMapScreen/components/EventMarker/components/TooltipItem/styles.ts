@@ -12,10 +12,18 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: s.max(5),
   },
+  primaryContainer: {
+    gap: s.width(6),
+    padding: s.max(7),
+    backgroundColor: theme.primaryRegular,
+  },
   blurView: {
     ...StyleSheet.absoluteFillObject,
   },
   text: {
     color: theme.mainBasic,
+  },
+  primaryText: {
+    fontSize: s.max(16),
   },
 });

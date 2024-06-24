@@ -39,6 +39,11 @@
       "markers": {
         "people": "{{value}} people"
       },
+      "event_info": {
+        "participants": "Participants",
+        "no_data": "Currently no participants",
+        "age": "Age: {{age}} years old"
+      },
       "create_new_event": {
         "title": "Add Event",
         "description": "Please provide more details about your event, including the type of event and a brief description to facilitate better search results",
@@ -95,6 +100,11 @@
   "common": {
     "error": "Something went wrong...",
     "app_name": "Connect",
+    "buttons": {
+      "close": "Close",
+      "join": "Join",
+      "edit": "Edit"
+    },
     "apply": "Apply",
     "event_types": {
       "0": "sport",
