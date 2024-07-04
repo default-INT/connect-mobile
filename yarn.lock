@@ -9551,7 +9551,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-maps@npm:^1.15.2":
+"react-native-maps@npm:1.15.2":
   version: 1.15.2
   resolution: "react-native-maps@npm:1.15.2"
   dependencies:
@@ -9564,6 +9564,22 @@ __metadata:
     react-native-web:
       optional: true
   checksum: dea8bd24af7da41669e72de2da8f657fd8dcc6966a765012af4a25c2b69bcc43ba97947288dba57637cdc5f3942364b896dde15886d0afd03fdaffd50c3b2c06
+  languageName: node
+  linkType: hard
+
+"react-native-maps@patch:react-native-maps@npm%3A1.15.2#./.yarn/patches/react-native-maps-npm-1.15.2-0eee12ecc6.patch::locator=connect%40workspace%3A.":
+  version: 1.15.2
+  resolution: "react-native-maps@patch:react-native-maps@npm%3A1.15.2#./.yarn/patches/react-native-maps-npm-1.15.2-0eee12ecc6.patch::version=1.15.2&hash=89090b&locator=connect%40workspace%3A."
+  dependencies:
+    "@types/geojson": ^7946.0.13
+  peerDependencies:
+    react: ">= 17.0.1"
+    react-native: ">= 0.64.3"
+    react-native-web: ">= 0.11"
+  peerDependenciesMeta:
+    react-native-web:
+      optional: true
+  checksum: b6e5050bb826db6383e512e156cae3a5b6a88e64f8f010273acc2c8ada6a6b0741fe6d5cdeea74a2557be061eea8708d4123827d10a898508a34703df66dc0a6
   languageName: node
   linkType: hard
 

@@ -1,0 +1,35 @@
+diff --git a/android/src/main/java/com/rnmaps/maps/MapCallout.java b/android/src/main/java/com/rnmaps/maps/MapCallout.java
+index d19733620d93b26538c5e32fcaaaf97b3e04f8a5..9d646a4a3044dc46e944555178becbd73c43cda1 100644
+--- a/android/src/main/java/com/rnmaps/maps/MapCallout.java
++++ b/android/src/main/java/com/rnmaps/maps/MapCallout.java
+@@ -6,8 +6,11 @@ import com.facebook.react.views.view.ReactViewGroup;
+
+ public class MapCallout extends ReactViewGroup {
+   private boolean tooltip = false;
+-  public int width;
+-  public int height;
++
++  // NOTE: It's temporary hack for callout, because in default, this callout unscale.
++  // Flow this issue: https://github.com/react-native-maps/react-native-maps/issues/5068
++  public int width = 800;
++  public int height = 400;
+
+   public MapCallout(Context context) {
+     super(context);
+diff --git a/android/src/main/java/com/rnmaps/maps/MapMarker.java b/android/src/main/java/com/rnmaps/maps/MapMarker.java
+index b755f9ba5a35a5bf8ab77eb66ced7b6580fe2822..8704df95dfbbb017776f5716bfdd634d55606b38 100644
+--- a/android/src/main/java/com/rnmaps/maps/MapMarker.java
++++ b/android/src/main/java/com/rnmaps/maps/MapMarker.java
+@@ -522,8 +522,10 @@ public class MapMarker extends MapFeature {
+   }
+
+   private Bitmap createDrawable() {
+-    int width = this.width <= 0 ? 100 : this.width;
+-    int height = this.height <= 0 ? 100 : this.height;
++    // NOTE: It's temporary hack for MapMarker, because in default, this MapMarker unscale on Android.
++    // Flow this issue: https://github.com/react-native-maps/react-native-maps/issues/5068
++    int width = this.width <= 0 ? 200 : this.width;
++    int height = this.height <= 0 ? 200 : this.height;
+     this.buildDrawingCache();
+
+     // Do not create the doublebuffer-bitmap each time. reuse it to save memory.

@@ -59,6 +59,13 @@ API_URL=<API_URL>
 GOOGLE_MAP_API_KEY=<GOOGLE_MAP_API_KEY>
 ```
 
+#### NOTE
+After build on IOS this config caching in:
+`./node_modules/react-native-config/ios/ReactNativeConfig/GeneratedDotEnv.m`
+
+For updating variable you need in XCode run 'Clean Build Folder' and rebuild
+application (`CMD` + `Shift` + `K`)
+
 ## Contributing
 
 We welcome contributions! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
