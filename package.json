@@ -73,5 +73,8 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@3.6.4",
+  "resolutions": {
+    "react-native-maps@^1.15.2": "patch:react-native-maps@npm%3A1.15.2#./.yarn/patches/react-native-maps-npm-1.15.2-0eee12ecc6.patch"
+  }
 }

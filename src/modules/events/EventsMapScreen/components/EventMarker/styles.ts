@@ -1,10 +1,6 @@
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { theme } from '@root/styles/theme';
 import { s } from '@utils/scaleUtils/scale';
-
-// NOTE: https://github.com/react-native-maps/react-native-maps/issues/5068
-const containerSize = Platform.OS === 'ios' ? s.max(52) : s.max(24);
-const iconPadding = Platform.OS === 'ios' ? s.max(10) : s.max(5);
 
 export const styles = StyleSheet.create({
   container: {
@@ -13,10 +9,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconContainer: {
-    width: containerSize,
-    height: containerSize,
-    borderRadius: containerSize / 2,
-    padding: iconPadding,
+    width: s.max(52),
+    height: s.max(52),
+    borderRadius: s.max(52) / 2,
+    padding: s.max(10),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.primaryRegular,
